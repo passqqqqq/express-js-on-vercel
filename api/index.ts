@@ -13,7 +13,7 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
-	res.send('Hello World');
+	res.send('WHen you watch a little bit too much queens stream, you will get an overdose.');
 });
 
 app.listen(8000, () => console.log('Server ready on port 8000.'));
