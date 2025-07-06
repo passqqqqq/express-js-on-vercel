@@ -15,7 +15,7 @@ app.use(express.static('public'));
 app.get('/', function (req, res) {
 
 
-    res.send("Lobster - The queen loves to go for sun tanning, but when she tans a little bit too much, her skins becomes red and that makes her look like a lobster!")
+    res.send("Lobstering - The queen loves to go for sun tanning, but when she tans a little bit too much, her skins becomes red and that makes her look like a lobster!")
 
 
     // const list = [{
