@@ -26,7 +26,7 @@ export class ExplainService {
 
     public getExplanation(query: string) {
         const explanation = this.glossary.find(item => {
-            return item.tags.some(tag => query.trim().toLowerCase().includes(tag.toLowerCase())) || item.name.toLowerCase().includes(query.trim().toLowerCase())
+            return item.tags.some(tag => query.trim().toLowerCase() === tag.toLowerCase()) || item.name.toLowerCase() === query.trim().toLowerCase()
         });
 
         if (!explanation) {
