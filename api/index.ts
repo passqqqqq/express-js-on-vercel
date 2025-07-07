@@ -1,8 +1,9 @@
+import { ExplainService } from "./services/explainService";
+
 require('dotenv').config();
 
 const express = require('express');
 const app = express();
-const { sql } = require('@vercel/postgres');
 
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -13,25 +14,28 @@ const urlencodedParser = bodyParser.urlencoded({ extended: false });
 app.use(express.static('public'));
 
 app.get('/', function (req, res) {
+    const query = req.query.searchQuery;
 
+    if (!query) {
+        res.send("No query provided");
+        return;
+    }
 
-    res.send("Lobstering - The queen loves to go for sun tanning, but when she tans a little bit too much, her skins becomes red and that makes her look like a lobster!")
+    const explanation = new ExplainService().getExplanation(query);
 
+    if (explanation) {
+        res.send(explanation);
+        return;
+    }
 
-    // const list = [{
-    //     description: 'Vitamins - The queen provides positive energy, motivation, and enjoyment, expressed as \"vitamins.\" Too much vitamins will give you an \"overdose\", from all her beauty, yapping, and all the cozy moments, leaving you all hyped up and over excited!',
-    //     name: "vitamins",
-    // }, {
-    //     name: "lobstering",
-    //     description: 'Lobster - The queen loves to go for sun tanning, but when she tans a little bit too much, her skins becomes red and that makes her look like a lobster!',
-    // }]
+    if (query.toLowerCase().includes("list")) {
+        const list = new ExplainService().getAvailableTerms();
+        res.send(`Available terms: ${list}`);
+        return;
+    }
 
-    // const queryParam = req.query.name;
-
-    // const result = list.find(item => item.name === queryParam);
-
-	// res.send(result?.description);
-});
+    res.send("No explanation found");
+})
 
 app.listen(8000, () => console.log('Server ready on port 8000.'));
 
