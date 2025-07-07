@@ -8,11 +8,11 @@ export class ExplainService {
 
     private glossary = [{
         name: "Vitamins",
-        description: "Vitamins are a group of organic compounds that are essential for the proper functioning of the body. They are involved in a wide range of biological processes, including metabolism, growth, and development.",
+        description: "The queen provides a lot of good vibes, motivation, sweetness and beauty on stream, expressed as \"vitamins\". Too much vitamins will give you an overdose, from all her yapping and beauty.",
         tags: ["vitamins", "vitamin", "vitamin overdose"]
     }, {
         name: "Lobstering",
-        description: "Lobster is a type of crustacean that is known for its large size and its ability to swim. It is a popular food in many parts of the world.",
+        description: "The queen loves to go for sun tanning, but when she tans a little bit too much, her skin becomes red and that makes her look like a lobster!",
         tags: ["lobstering", "lobster", "lobster tanning"]
     }, {
         name: "Going bananas",
