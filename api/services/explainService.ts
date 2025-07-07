@@ -17,7 +17,7 @@ export class ExplainService {
     }, {
         name: "Going bananas",
         description: "When you are going bananas is a funnny phrase we used when our queen went for shopping at the mall in greece, and she was over excited and bought a lot of things, and she was like \"I'm going bananas\"",
-        tags: ["going bananas", "bananas", "banana"]
+        tags: ["going bananas", "bananas", "banana", "goingbananas"]
     }]
 
     public getAvailableTerms() {
